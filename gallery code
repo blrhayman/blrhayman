@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie de photos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .photo {
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .photo:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+<div id="gallery"></div>
+
+<script>
+    // Ajoutez vos propres images
+    const images = [
+        'image1.jpg',
+        'image2.jpg',
+        'image3.jpg',
+        // Ajoutez d'autres images
+    ];
+
+    const gallery = document.getElementById('gallery');
+
+    // Créez les éléments d'image dans la galerie
+    images.forEach((image, index) => {
+        const imgElement = document.createElement('img');
+        imgElement.src = image;
+        imgElement.alt = `Image ${index + 1}`;
+        imgElement.classList.add('photo');
+
+        // Ajoutez un gestionnaire d'événements pour réagir au clic sur une image
+        imgElement.addEventListener('click', () => {
+            alert(`Vous avez cliqué sur l'image ${index + 1}`);
+            // Ajoutez ici le code pour une réaction spécifique au clic
+        });
+
+        gallery.appendChild(imgElement);
+    });
+</script>
+
+</body>
+</html>
